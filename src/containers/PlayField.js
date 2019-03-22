@@ -7,7 +7,8 @@ class PlayField extends React.Component {
   return (
     <div>{'PLayField'}
       <Fish />
-      <Fish /></div>
+      <Fish />
+      </div>
   )
   }
 }
