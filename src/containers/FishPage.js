@@ -2,6 +2,7 @@ import React from 'react';
 import Fight from './Fight'
 import Title from '../components/Title'
 import Form from './Form'
+import FishIndex from './FishIndex'
 
 class FishPage extends React.Component {
   constructor() {
@@ -27,6 +28,7 @@ class FishPage extends React.Component {
         <Title />
         <Fight />
         <Form />
+        <FishIndex />
       </div>
     )
   }

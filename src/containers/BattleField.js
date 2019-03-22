@@ -7,7 +7,8 @@ class BattleField extends React.Component {
   return (
     <div>{'BattleField'}
       <Fish />
-      <Fish /></div>
+      <Fish />
+      </div>
   )
   }
 }
