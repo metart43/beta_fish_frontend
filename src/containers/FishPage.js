@@ -28,7 +28,7 @@ class FishPage extends React.Component {
         <Title />
         <Fight />
         <Form />
-        <FishIndex />
+        <FishIndex fish={this.state.fishArray}/>
       </div>
     )
   }

@@ -7,10 +7,10 @@ class FishIndex extends React.Component {
 
   }
   render(){
+    console.log(this.props.fish);
     return (
       <div>
-      {'Fish Index:'}
-      <FishCard />
+        {this.props.fish.map(fish => <FishCard key={fish.id} fish={fish}/>)}
     </div>)
   }
 }
