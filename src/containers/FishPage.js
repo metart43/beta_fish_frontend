@@ -1,6 +1,7 @@
 import React from 'react';
 import Fight from './Fight'
-import Form from '../components/Form'
+import Title from '../components/Title'
+import Form from './Form'
 
 class FishPage extends React.Component {
   constructor() {
@@ -10,9 +11,20 @@ class FishPage extends React.Component {
     }
   }
 
+  componentDidMount() {
+    fetch('http://localhost:3000/fish')
+    .then(resp => resp.json())
+    .then(fishArray => {
+      this.setState({
+        fishArray
+      })
+    })
+  }
+
   render(){
     return (
       <div>
+        <Title />
         <Fight />
         <Form />
       </div>

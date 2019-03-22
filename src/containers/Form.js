@@ -17,14 +17,14 @@ getName(){
   render(){
     return(
       <div>
-      <form>
-  <label>
-    Name:
-    <input type="text" name="name" />
-  </label>
-  <input type="submit" value={this.state.firstName} onChange={this.getName}/>
-</form>
-</div>
+        <form>
+          <label>
+            Name:
+            <input type="text" name="name" />
+          </label>
+          <input type="submit" value={this.state.firstName} onChange={this.getName}/>
+        </form>
+      </div>
     )
   }
 }

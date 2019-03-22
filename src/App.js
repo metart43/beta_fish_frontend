@@ -6,12 +6,6 @@ import FishPage from './containers/FishPage'
 
 class App extends Component {
 
-  componentDidMount(){
-    fetch('http://localhost:3000/fish')
-    .then(res => res.json())
-    .then(fishData => console.log(fishData))
-  }
-
   render() {
     return (
       <div className="App">

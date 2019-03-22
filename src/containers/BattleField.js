@@ -2,14 +2,14 @@ import React from 'react';
 import Fish from '../components/Fish'
 
 
-class PlayField extends React.Component {
+class BattleField extends React.Component {
   render(){
   return (
-    <div>{'PLayField'}
+    <div>{'BattleField'}
       <Fish />
       <Fish /></div>
   )
   }
 }
 
-export default PlayField
+export default BattleField
