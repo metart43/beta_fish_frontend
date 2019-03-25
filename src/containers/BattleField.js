@@ -106,10 +106,9 @@ class BattleField extends React.Component {
   render(){
   return (
     <div className={'battlefield-container'}>
-      <div onClick={this.leaveMouse} onMouseEnter={this.enterMouse} onMouseMove={this.followMouse} onMouseLeave={this.leaveMouse} className='battlefield'>{'BattleField'}
+      <div onClick={this.leaveMouse} onMouseEnter={this.enterMouse} onMouseMove={this.followMouse} onMouseLeave={this.leaveMouse} className='battlefield'>
         <Fish fish={this.props.fish} left={this.state.fishX} top={this.state.fishY} />
         <Fish fish={this.props.opponent} left={this.state.opponentX} top={this.state.opponentY} />
-
       </div>
     </div>
   )

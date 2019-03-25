@@ -54,14 +54,11 @@ class FishPage extends React.Component {
     return (
       <React.Fragment>
         <Title content={this.state.title} />
-        <Fight fish={this.state.selectedFish} opponent={this.state.selectedOpponent} />
-        <Form fish={this.state.fishArray.slice(0,10)} addFish={this.addFish}/>
-        <FishIndex fish={this.state.fishArray}/>
         <BrowserRouter>
         <Switch>
           <Route path="/fishes" render={() => <FishIndex fish={this.state.fishArray} />} />
           <Route path="/fight" render={() => <Fight fish={this.state.selectedFish} opponent={this.state.selectedOpponent} />} />
-          <Route path="/hatch" render={() => <Form />} />
+            <Route path="/hatch" render={() => <Form fish={this.state.fishArray.slice(0, 10)} addFish={this.addFish} />} />
         </Switch>
         </BrowserRouter>
       </React.Fragment>

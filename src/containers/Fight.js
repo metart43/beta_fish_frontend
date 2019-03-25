@@ -1,14 +1,17 @@
+/* eslint-disable no-unused-expressions */
 import React from 'react';
 import BattleField from './BattleField';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import Stats from '../components/Stats';
+import { Redirect, BrowserRouter } from 'react-router-dom'
 
 class Fight extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
+      won: false,
       opponentPower: 0,
       opponentHp: 0,
       opponentImg: '',
@@ -60,11 +63,38 @@ class Fight extends React.Component {
 
   didWin() {
     // check if opponenthp is <= 0
-    // eslint-disable-next-line no-unused-expressions
-    this.state.opponentHp <= 0 ? alert('ya did it') : null
+    this.state.opponentHp <= 0 ?
+     this.postWin(this.props.fish, this.props.opponent)
+     : null
+  }
+
+  postWin(fish, opponent) {
+    fetch('http://localhost:3000/fights', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        fish_id: fish.id,
+        opponent_id: opponent.id,
+        won: true
+      }),
+    }).then(() => {
+      this.setState({
+        won: true
+      })
+    })
   }
 
   render() {
+
+    if (this.state.won) {
+      return (< BrowserRouter forceRefresh={true} >
+              <Redirect to="/fishes" />
+            </BrowserRouter >)
+    }
+
     return (
       <div>
         <BattleField attack1={this.attack1} attack2={this.attack2} attack3={this.attack3} fish={this.state.fishImg} opponent={this.state.opponentImg} />

@@ -34,8 +34,8 @@ function ButtonAppBar(props) {
           <Typography variant="h6" color="inherit" className={classes.grow}>
             Beta Fish Fight Club <i class="fas fa-fish"></i>
           </Typography>
-          <BrowserRouter>
-          <Link to={'/fishes'} className='item'>
+          <BrowserRouter forceRefresh={true}>
+          <Link to={'/fishes'}>
           <Button color="inherit" >Fishes</Button>
           </Link>
           </BrowserRouter>

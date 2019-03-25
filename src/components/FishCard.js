@@ -11,7 +11,10 @@ let fish = props.fish
 return (
   <div className='flip-card'>
   <div className='flip-card-inner'>
-    <div className='flip-card-front'><img className='image' alt='' src={require(`../beta_images/${fish.img_url}.png`)}/></div>
+    <div className='flip-card-front'>
+      <img className='image' alt='' src={require(`../beta_images/${fish.img_url}.png`)}/>
+      <strong>{fish.name}</strong>
+    </div>
     <div className='flip-card-back'>
         <div><strong>{fish.name}</strong></div>
         <div><i class="material-icons">healing</i> {fish.hp}</div>
