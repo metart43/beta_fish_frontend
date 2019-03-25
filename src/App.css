@@ -27,6 +27,7 @@
   width: 100px;
   height: 100px;
 }
+<<<<<<< HEAD
 
 .battlefield-container {
   padding: 5%;
@@ -40,6 +41,11 @@
   background-color: aqua;
 }
 
+=======
+.MuiPaper-root-13 {
+  margin: 10px;
+}
+>>>>>>> f99bea70259a0bafb466113fdeceb3fd886b6684
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
