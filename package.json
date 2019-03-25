@@ -4,10 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.2",
-<<<<<<< HEAD
-=======
     "@material-ui/icons": "^3.0.2",
->>>>>>> f99bea70259a0bafb466113fdeceb3fd886b6684
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.8"
