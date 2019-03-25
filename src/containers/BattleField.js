@@ -19,10 +19,10 @@ class BattleField extends React.Component {
 
   componentDidMount() {
     const bf = document.querySelector('.battlefield')
-    let fishX = 53
-    let fishY = 160
+    let fishX = 75
+    let fishY = 180
     let opponentX = bf.clientWidth - 72
-    let opponentY = 540
+    let opponentY = bf.clientHeight + 50
     this.setState({
       fishX,
       fishY,
@@ -40,8 +40,9 @@ class BattleField extends React.Component {
   }
 
   updateOpponentLocation = () => {
-    const opponentX = (Math.random() * (540 - 53)) + 53
-    const opponentY = (Math.random() * (540 - 160)) + 160
+    const bf = document.querySelector('.battlefield')
+    const opponentX = (Math.random() * (bf.clientWidth - 75)) + 50
+    const opponentY = (Math.random() * (bf.clientHeight - 180)) + 180
     this.setState({
       opponentX,
       opponentY

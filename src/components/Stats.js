@@ -15,7 +15,7 @@ const Stats = (props) => {
         </Typography>
         <GridList cellHeight={30} >
         <GridListTile>
-          <Chip avatar={<Avatar>HP</Avatar>} label={props.hp} />
+            <Chip avatar={<Avatar>HP</Avatar>} label={props.hp} />
         </GridListTile>
         <GridListTile>
           <Chip avatar={<Avatar>PWR</Avatar>} label={props.power} />
