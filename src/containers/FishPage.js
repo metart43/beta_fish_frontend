@@ -12,15 +12,15 @@ class FishPage extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   fetch('http://localhost:3000/fish')
-  //   .then(resp => resp.json())
-  //   .then(fishArray => {
-  //     this.setState({
-  //       fishArray
-  //     })
-  //   })
-  // }
+  componentDidMount() {
+    fetch('http://localhost:3000/fish')
+    .then(resp => resp.json())
+    .then(fishArray => {
+      this.setState({
+        fishArray
+      })
+    })
+  }
 
   render(){
     return (
