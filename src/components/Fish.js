@@ -11,7 +11,7 @@ const Fish = (props) => {
   return (
     <div>
       {props.fish ? 
-        <img className='image' src={require(`../beta_images/${props.fish.img_url}.png`)} alt='fish' style={styling} /> : null}
+        <img className='image' src={require(`../beta_images/${props.fish}.png`)} alt='fish' style={styling} /> : null}
     </div>
   )
 }
