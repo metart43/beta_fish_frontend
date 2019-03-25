@@ -8,28 +8,49 @@ class FishPage extends React.Component {
   constructor() {
     super()
     this.state = {
-      fishArray: []
+      fishArray: [],
+      opponents: [],
+      selectedFish: null,
+      selectedOpponent: null,
+      title: 'BETTA FISH FIGHT CLUB'
     }
   }
 
-  // componentDidMount() {
-  //   fetch('http://localhost:3000/fish')
-  //   .then(resp => resp.json())
-  //   .then(fishArray => {
-  //     this.setState({
-  //       fishArray
-  //     })
-  //   })
-  // }
+  componentDidMount() {
+    fetch('http://localhost:3000/fish')
+    .then(resp => resp.json())
+    .then(fishArray => {
+      this.setState({
+        fishArray,
+        selectedFish: fishArray[0]
+      })
+    })
+    fetch('http://localhost:3000/opponents')
+    .then(resp => resp.json())
+    .then(opponents => {
+      this.setState({
+        opponents,
+        selectedOpponent: opponents[0]
+      })
+    })
+
+  }
+
+
+  handleClickFishCard = (fish) => {
+    this.setState({
+      selectedFish: fish
+    })
+  }
 
   render(){
     return (
-      <div>
-        <Title />
-        <Fight />
+      <React.Fragment>
+        <Title content={this.state.title} />
+        <Fight fish={this.state.selectedFish} opponent={this.state.selectedOpponent} />
         <Form />
         <FishIndex fish={this.state.fishArray}/>
-      </div>
+      </React.Fragment>
     )
   }
 }

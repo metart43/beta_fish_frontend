@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Title = () => {
+const Title = (props) => {
   return (<div>
-    {'title'}
+    {props.content}
   </div>)
 }
 
