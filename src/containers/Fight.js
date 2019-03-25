@@ -21,7 +21,7 @@ class Fight extends React.Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    if (!state.opponentPower) {
+    if (!state.opponentPower || !state.fishPower) {
       return ({
         opponentPower: props.opponent ? props.opponent.power : 0,
         opponentHp: props.opponent ? props.opponent.hp : 0,

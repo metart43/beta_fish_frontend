@@ -12,17 +12,17 @@ import Typography from '@material-ui/core/Typography';
 const FishCard = (props) => {
 let fish = props.fish
 return (
-  <Card>
-     <CardActionArea>
-    <CardContent>
-    <CardMedia><img className='image' alt='' src={require(`../beta_images/${fish.img_url}.png`)}/></CardMedia>
-    <div className=''>Name: {fish.name}</div>
-    <div className=''>HP: {fish.hp}</div>
-    <div className=''>Power: {fish.power}</div>
-    <div className=''>Games won: {fish.games_won}</div>
-    </CardContent>
-  </CardActionArea>
-  </Card>
+  <div className='flip-card'>
+  <div className='flip-card-inner'>
+    <div className='flip-card-front'><img className='image' alt='' src={require(`../beta_images/${fish.img_url}.png`)}/></div>
+    <div className='flip-card-back'>
+        <div><strong>{fish.name}</strong></div>
+      <div>HP: {fish.hp}</div>
+      <div>Power: {fish.power}</div>
+      <div>Games won: {fish.games_won}</div>
+    </div>
+  </div>
+  </div>
 )
 }
 
