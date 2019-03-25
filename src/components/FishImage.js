@@ -1,9 +1,13 @@
 import React from 'react';
+import Card from '@material-ui/core/Card'
 
-
-const FishImage = () => {
+const FishImage = (props) => {
   return (
-    <div>{'fish image'}</div>
+    <div>
+      <Card id='FishImage' onClick={(event) => {props.handleClickImage(props.fish, event)}}>
+      <img className='image' src={require(`../beta_images/${props.fish.img_url}.png`)}/>
+      </Card>
+  </div>
   )
 }
 

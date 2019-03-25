@@ -20,16 +20,32 @@ class BattleField extends React.Component {
   componentDidMount() {
     const bf = document.querySelector('.battlefield')
     let fishX = 53
-    let fishY = 87
+    let fishY = 160
     let opponentX = bf.clientWidth - 72
-    let opponentY = bf.clientHeight - 35
+    let opponentY = 540
     this.setState({
       fishX,
       fishY,
       opponentX,
-      opponentY
+      opponentY,
+      moveInterval: setInterval(this.updateOpponentLocation, 2000)
     })
     document.addEventListener('keydown', this.attack)
+    // eslint-disable-next-line no-unused-expressions
+    this.state.moveInterval
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.moveInterval)
+  }
+
+  updateOpponentLocation = () => {
+    const opponentX = (Math.random() * (540 - 53)) + 53
+    const opponentY = (Math.random() * (540 - 160)) + 160
+    this.setState({
+      opponentX,
+      opponentY
+    })
   }
 
   enterMouse = () => {

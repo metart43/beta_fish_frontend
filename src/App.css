@@ -44,6 +44,25 @@
   margin: 10px;
 }
 
+#FishSubmit {
+  margin: 10px;
+}
+
+#imageHeader{
+  position:absolute;
+  margin-bottom: 25px;
+}
+
+#FishImage{
+
+}
+
+#highlightedCard{
+  border-color: #77DFFF;
+  border-width: thin;
+  border-style: solid;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

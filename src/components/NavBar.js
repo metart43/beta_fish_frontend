@@ -31,7 +31,7 @@ function ButtonAppBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            Beta Fish Fight Club
+            Beta Fish Fight Club <i class="fas fa-fish"></i>
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>

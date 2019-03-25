@@ -43,12 +43,18 @@ class FishPage extends React.Component {
     })
   }
 
+  addFish = (fish) => {
+    this.setState({
+      fishArray:[...this.state.fishArray, fish]
+    })
+  }
+
   render(){
     return (
       <React.Fragment>
         <Title content={this.state.title} />
         <Fight fish={this.state.selectedFish} opponent={this.state.selectedOpponent} />
-        <Form />
+        <Form fish={this.state.fishArray.slice(0,10)} addFish={this.addFish}/>
         <FishIndex fish={this.state.fishArray}/>
       </React.Fragment>
     )
