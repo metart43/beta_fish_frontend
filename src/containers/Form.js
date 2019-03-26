@@ -1,7 +1,6 @@
 import React from 'react';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button'
 import FishImagesContainer from './FishImagesContainer'
 import Grid from '@material-ui/core/Grid'

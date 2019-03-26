@@ -113,6 +113,25 @@
   backface-visibility: hidden;
 }
 
+#fishesBttn{
+  color: white;
+  margin-right: 7px;
+  border-color: white;
+  justify-content: center;
+}
+
+#hatchBttn{
+  color: white;
+  border-color: white;
+}
+
+#link{
+  text-decoration: none;
+}
+
+#chip{
+  text-decoration: none;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -1,6 +1,6 @@
 import React from 'react';
 import Chip from '@material-ui/core/Chip';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 
 
@@ -18,10 +18,9 @@ return (
         <div><i className="material-icons">healing</i> {fish.hp}</div>
         <div><i className="material-icons">flash_on</i> {fish.power}</div>
       <div>Games won: {fish.games_won}</div>
-        <Link to={`/fight`} >
-        <Chip label={"FIGHT!"} onClick={() => props.clickFish(fish)}/>
-        </Link>
-      
+      <Link id='link'to={'/fight'}>
+      <Chip variant="outlined" label={"FIGHT!"} onClick={() => props.clickFish(fish)} />
+      </Link>
     </div>
   </div>
   </div>
