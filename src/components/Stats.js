@@ -5,6 +5,8 @@ import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
+import Healing from '@material-ui/icons/Healing';
+import FlashOn from '@material-ui/icons/FlashOn'
 
 const Stats = (props) => {
   return (
@@ -15,10 +17,10 @@ const Stats = (props) => {
         </Typography>
         <GridList cellHeight={30} >
         <GridListTile>
-            <Chip avatar={<Avatar>HP</Avatar>} label={props.hp} />
+            <Chip avatar={<Avatar><Healing /></Avatar>} label={props.hp} />
         </GridListTile>
         <GridListTile>
-          <Chip avatar={<Avatar>PWR</Avatar>} label={props.power} />
+          <Chip avatar={<Avatar><FlashOn /></Avatar>} label={props.power} />
         </GridListTile>
         </GridList>
       </Paper>
