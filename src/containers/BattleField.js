@@ -19,26 +19,36 @@ class BattleField extends React.Component {
 
   componentDidMount() {
     const bf = document.querySelector('.battlefield')
-    let fishX = 75
-    let fishY = 180
-    let opponentX = bf.clientWidth - 72
-    let opponentY = bf.clientHeight + 50
+    let fishX = 30
+    let fishY = 80
+    let opponentX = bf.clientWidth - 90
+    let opponentY = bf.clientHeight - 30
     this.setState({
       fishX,
       fishY,
       opponentX,
       opponentY,
-      moveInterval: setInterval(this.updateOpponentLocation, 1000),
+      moveInterval: setInterval(this.updateOpponentLocation, 2000),
       attackInterval: setInterval(() => {this.opponentAttack()}, 500)
     })
     document.addEventListener('keydown', this.attack)
     // eslint-disable-next-line no-unused-expressions
     this.state.moveInterval
   }
-
+  
   componentWillUnmount() {
     clearInterval(this.state.moveInterval)
     clearInterval(this.state.attackInterval)
+  }
+  
+  updateOpponentLocation = () => {
+    const bf = document.querySelector('.battlefield')
+    const opponentX = (Math.random() * ((bf.clientWidth - 90) - 30)) + 30
+    const opponentY = (Math.random() * ((bf.clientHeight - 30) - 80)) + 80
+    this.setState({
+      opponentX,
+      opponentY
+    })
   }
 
   opponentAttack = () => {
@@ -62,15 +72,6 @@ class BattleField extends React.Component {
     }
   }
 
-  updateOpponentLocation = () => {
-    const bf = document.querySelector('.battlefield')
-    const opponentX = (Math.random() * (bf.clientWidth - 75)) + 50
-    const opponentY = (Math.random() * (bf.clientHeight - 180)) + 180
-    this.setState({
-      opponentX,
-      opponentY
-    })
-  }
 
   enterMouse = () => {
     this.setState({
