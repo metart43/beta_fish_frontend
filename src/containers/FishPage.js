@@ -22,7 +22,7 @@ class FishPage extends React.Component {
     .then(fishArray => {
       this.setState({
         fishArray,
-        selectedFish: fishArray[0]
+        // selectedFish: fishArray[0]
       })
     })
     fetch('http://localhost:3000/opponents')
@@ -30,7 +30,7 @@ class FishPage extends React.Component {
     .then(opponents => {
       this.setState({
         opponents,
-        selectedOpponent: opponents[0]
+        // selectedOpponent: opponents[0]
       })
     })
 
@@ -52,6 +52,13 @@ class FishPage extends React.Component {
     this.setState({
       selectedFish: fish
     }, () => <Redirect to='/fight' />)
+  }
+
+  handleSelectOpponent = (opponent,event) => {
+    event.currentTarget.id = 'highlightedCard'
+    this.setState({
+      selectedOpponent: opponent
+    }, () => console.log(this.state.selectedOpponent))
   }
 
   addFish = (fish) => {
@@ -83,7 +90,7 @@ class FishPage extends React.Component {
           <React.Fragment>
           <NavBar />
         <Switch>
-          <Route path="/fishes" render={() => <FishIndex fish={this.state.fishArray} clickCard={this.handleClickFishCard} deleteFish={this.deleteFish}/>} />
+          <Route path="/fishes" render={() => <FishIndex fish={this.state.fishArray} handleSelectOpponent={this.handleSelectOpponent} clickCard={this.handleClickFishCard} opponents={this.state.opponents} deleteFish={this.deleteFish}/>} />
           <Route path="/fight" render={() => <Fight fishWon={this.fishWon} fish={this.state.selectedFish} opponent={this.state.selectedOpponent} />} />
           <Route path="/hatch" render={() => <Form fish={this.state.fishArray.slice(0, 10)} addFish={this.addFish} />} />
         </Switch>
