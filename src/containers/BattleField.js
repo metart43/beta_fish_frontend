@@ -28,7 +28,8 @@ class BattleField extends React.Component {
       fishY,
       opponentX,
       opponentY,
-      moveInterval: setInterval(this.updateOpponentLocation, 1000)
+      moveInterval: setInterval(this.updateOpponentLocation, 1000),
+      attackInterval: setInterval(() => {this.opponentAttack()}, 500)
     })
     document.addEventListener('keydown', this.attack)
     // eslint-disable-next-line no-unused-expressions
@@ -37,6 +38,28 @@ class BattleField extends React.Component {
 
   componentWillUnmount() {
     clearInterval(this.state.moveInterval)
+    clearInterval(this.state.attackInterval)
+  }
+
+  opponentAttack = () => {
+    const num = Math.floor(Math.random() * (3 - 1)) + 1
+    console.log(num)
+    if (this.isWithinRange()) {
+      switch (num) {
+        case 1:
+          console.log('attack 1')
+          this.props.attack1('fish')
+          break;
+        case 2:
+          console.log('attack 2')
+          this.props.attack2('fish')
+          break;
+        case 3:
+          console.log('attack 3')
+          this.props.attack3('fish')
+          break;
+      }
+    }
   }
 
   updateOpponentLocation = () => {
@@ -102,6 +125,8 @@ class BattleField extends React.Component {
       }
     }
   }
+
+
 
   render(){
   return (

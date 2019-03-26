@@ -5,7 +5,7 @@ const FishImage = (props) => {
   return (
     <div>
       <Card id='FishImage' onClick={(event) => {props.handleClickImage(props.fish, event)}}>
-      <img className='image' src={require(`../beta_images/${props.fish.img_url}.png`)}/>
+      <img className='image' src={require(`../beta_images/${props.fish}.png`)}/>
       </Card>
   </div>
   )

@@ -11,7 +11,7 @@ class Fight extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      won: false,
+      done: false,
       opponentPower: 0,
       opponentHp: 0,
       opponentImg: '',
@@ -40,31 +40,50 @@ class Fight extends React.Component {
     }
   }
 
-  attack1 = () => {
+  attack1 = (arg) => {
+    arg ?
+    this.setState({
+      fishHp: this.state.fishHp - Math.floor(this.state.fishPower * 0.01)
+    }, this.didLose())
+    :
     this.setState({
       opponentHp: this.state.opponentHp - Math.floor(this.state.fishPower * 0.01)
-    })
-    this.didWin()
+    }, this.didWin())
   }
 
-  attack2 = () => {
+  attack2 = (arg) => {
+    arg ?
+    this.setState({
+      fishHp: this.state.fishHp - Math.floor(this.state.fishPower * 0.05)
+    }, this.didLose())
+    :
     this.setState({
       opponentHp: this.state.opponentHp - Math.floor(this.state.fishPower * 0.05)
-    })
-    this.didWin()
+    }, this.didWin())
+    
   }
 
-  attack3 = () => {
+  attack3 = (arg) => {
+    arg ? 
+    this.setState({
+      fishHp: this.state.fishHp - Math.floor(this.state.fishPower * 0.1)
+    }, this.didLose())
+    :
     this.setState({
       opponentHp: this.state.opponentHp - Math.floor(this.state.fishPower * 0.1)
-    })
-    this.didWin()
+    }, this.didWin())
   }
 
   didWin() {
     // check if opponenthp is <= 0
     this.state.opponentHp <= 0 ?
      this.postWin(this.props.fish, this.props.opponent)
+     : null
+  }
+
+  didLose() {
+    this.state.fishHp <= 0 ?
+     this.postLoss(this.props.fish, this.props.opponent)
      : null
   }
 
@@ -82,17 +101,34 @@ class Fight extends React.Component {
       }),
     }).then(() => {
       this.setState({
-        won: true
+        done: true
+      }, this.props.fishWon(fish))
+    })
+  }
+
+  postLoss(fish, opponent) {
+    fetch('http://localhost:3000/fights', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        fish_id: fish.id,
+        opponent_id: opponent.id,
+        won: false
+      }),
+    }).then(() => {
+      this.setState({
+        done: true
       })
     })
   }
 
   render() {
 
-    if (this.state.won) {
-      return (< BrowserRouter forceRefresh={true} >
-              <Redirect to="/fishes" />
-            </BrowserRouter >)
+    if (this.state.done) {
+      return <Redirect to="/fishes" />
     }
 
     return (

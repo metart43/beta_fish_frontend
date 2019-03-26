@@ -34,7 +34,7 @@
 }
 
 .battlefield-container {
-  padding: 5%;
+  padding: 1% 2%;
 }
 
 .battlefield {
@@ -45,6 +45,8 @@
   background-color: aqua;
   background-image: url('./battlefield.png');
   background-size: cover;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 5px #0f0f0f4f inset;
 }
 
 .MuiPaper-root-13 {
@@ -60,8 +62,10 @@
   margin-bottom: 25px;
 }
 
-#FishImage{
-
+.navbar {
+  margin: 0px !important;
+  margin-top: 0px !important;
+  overflow: hidden;
 }
 
 #highlightedCard{

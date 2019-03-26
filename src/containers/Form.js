@@ -28,7 +28,7 @@ handleClickImage = (fish, event) => {
   event.currentTarget.id = 'highlightedCard' : event.currentTarget.id = ''
   this.setState({
     clicked: !this.state.clicked,
-    clickedImage: fish.img_url
+    clickedImage: fish
   })
 }
 
@@ -50,19 +50,21 @@ handleClickImage = (fish, event) => {
 }
 
   render(){
+    const fishes = ['fish1', 'fish2', 'fish3', 'fish4', 'fish5', 'fish6', 'fish7', 'fish8', 'fish9', 'fish10', 'fish11']
     return(
       <div>
+        <h2>Hatch a Fish Egg!</h2>
         <form onSubmit={this.submitFish}>
           <InputLabel>
             Fish Name:
             <Input type="text" name="name" value={this.state.fishName} onChange={this.getName}/>
           </InputLabel>
+          <FishImagesContainer handleClickImage={this.handleClickImage} fish={fishes}/>
           <Button id='FishSubmit'variant="outlined" type='submit' label='submit'>
           Hatch
         </Button>
         </form>
         <Grid justify='center'>
-        <FishImagesContainer handleClickImage={this.handleClickImage} fish={this.props.fish}/>
         </Grid>
         </div>
     )
