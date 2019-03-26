@@ -1,9 +1,9 @@
 import React from 'react';
 import Fight from './Fight'
-import Title from '../components/Title'
 import Form from './Form'
 import FishIndex from './FishIndex'
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
+import NavBar from '../components/NavBar'
 
 class FishPage extends React.Component {
   constructor() {
@@ -52,16 +52,16 @@ class FishPage extends React.Component {
 
   render(){
     return (
-      <React.Fragment>
-        <Title content={this.state.title} />
-        <BrowserRouter>
+        <Router>
+          <React.Fragment>
+          <NavBar />
         <Switch>
           <Route path="/fishes" render={() => <FishIndex fish={this.state.fishArray} />} />
           <Route path="/fight" render={() => <Fight fish={this.state.selectedFish} opponent={this.state.selectedOpponent} />} />
-            <Route path="/hatch" render={() => <Form fish={this.state.fishArray.slice(0, 10)} addFish={this.addFish} />} />
+          <Route path="/hatch" render={() => <Form fish={this.state.fishArray.slice(0, 10)} addFish={this.addFish} />} />
         </Switch>
-        </BrowserRouter>
-      </React.Fragment>
+          </React.Fragment>
+        </Router>
     )
   }
 }
