@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Link, BrowserRouter } from 'react-router-dom'
+import { Link, BrowserRouter as Router, NavLink} from 'react-router-dom'
 
 const styles = {
   root: {
@@ -22,6 +22,15 @@ const styles = {
   },
 };
 
+const link = {
+  width: '100px',
+  padding: '12px',
+  margin: '0 6px 6px',
+  background: 'blue',
+  textDecoration: 'none',
+  color: 'white',
+}
+
 function ButtonAppBar(props) {
   const { classes } = props;
   return (
@@ -34,11 +43,9 @@ function ButtonAppBar(props) {
           <Typography variant="h6" color="inherit" className={classes.grow}>
             Beta Fish Fight Club <i class="fas fa-fish"></i>
           </Typography>
-          <BrowserRouter forceRefresh={true}>
-          <Link to={'/fishes'}>
-          <Button color="inherit" >Fishes</Button>
+          <Link exact to='/fishes' style={link}>
+            Fishes
           </Link>
-          </BrowserRouter>
         </Toolbar>
       </AppBar>
     </div>
