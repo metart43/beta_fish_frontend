@@ -5,6 +5,9 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import Stats from '../components/Stats';
 import { Redirect, BrowserRouter } from 'react-router-dom'
+import SweetAlert from 'sweetalert-react';
+import 'sweetalert/dist/sweetalert.css';
+
 
 class Fight extends React.Component {
 
@@ -12,6 +15,7 @@ class Fight extends React.Component {
     super(props)
     this.state = {
       done: false,
+      redirect: false,
       opponentPower: 0,
       opponentHp: 0,
       opponentImg: '',
@@ -75,16 +79,15 @@ class Fight extends React.Component {
   }
 
   didWin() {
-    // check if opponenthp is <= 0
-    this.state.opponentHp <= 0 ?
-     this.postWin(this.props.fish, this.props.opponent)
-     : null
+    if (this.state.opponentHp <= 0) {
+      this.postWin(this.props.opponent, this.props.opponent)
+    }
   }
 
   didLose() {
-    this.state.fishHp <= 0 ?
-     this.postLoss(this.props.fish, this.props.opponent)
-     : null
+    if (this.state.fishHp <= 0) {
+      this.postLoss(this.props.fish, this.props.opponent)
+    }
   }
 
   postWin(fish, opponent) {
@@ -101,7 +104,8 @@ class Fight extends React.Component {
       }),
     }).then(() => {
       this.setState({
-        done: true
+        done: true,
+        opponentHp: 0
       }, this.props.fishWon(fish))
     })
   }
@@ -120,19 +124,27 @@ class Fight extends React.Component {
       }),
     }).then(() => {
       this.setState({
-        done: true
+        done: true,
+        fishHp: 0
       })
     })
   }
 
   render() {
 
-    if (this.state.done) {
+    if (this.state.redirect) {
       return <Redirect to="/fishes" />
     }
 
     return (
       <div>
+        <SweetAlert
+          show={this.state.done}
+          title={this.state.opponentHp === 0 ? "Congratulations!": "Oh No!"}
+          type={this.state.opponentHp === 0 ? "success": "error"}
+          text={this.state.opponentHp === 0 ? `You beat ${this.state.opponentName}!`: `${this.state.opponentName} beat you!`}
+          onConfirm={() => this.setState({ redirect: true, done: false})}
+        />
         <BattleField attack1={this.attack1} attack2={this.attack2} attack3={this.attack3} fish={this.state.fishImg} opponent={this.state.opponentImg} />
         <GridList cellHeight={100}>
           <GridListTile>
