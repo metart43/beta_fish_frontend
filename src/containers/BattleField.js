@@ -28,8 +28,8 @@ class BattleField extends React.Component {
       fishY,
       opponentX,
       opponentY,
-      moveInterval: setInterval(this.updateOpponentLocation, 2000),
-      attackInterval: setInterval(this.opponentAttack, 500)
+      moveInterval: setInterval(this.updateOpponentLocation, 750),
+      attackInterval: setInterval(this.opponentAttack, 100)
     })
     document.addEventListener('keydown', this.attack)
     // eslint-disable-next-line no-unused-expressions
