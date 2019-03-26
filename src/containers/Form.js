@@ -4,6 +4,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Button from '@material-ui/core/Button'
 import FishImagesContainer from './FishImagesContainer'
 import Grid from '@material-ui/core/Grid'
+import {Redirect} from 'react-router-dom'
 
 class Form extends React.Component {
   constructor(){
@@ -12,7 +13,8 @@ class Form extends React.Component {
       fishName: '',
       clickedImage: '',
       newFish: '',
-      clicked: false
+      clicked: false,
+      redirect: false
     }
   }
 
@@ -32,6 +34,9 @@ handleClickImage = (fish, event) => {
 }
 
   submitFish = (event) => {
+    this.setState({
+      redirect: true
+    })
     event.preventDefault();
     fetch('http://localhost:3000/fish', {
       method: 'POST',
@@ -49,7 +54,11 @@ handleClickImage = (fish, event) => {
 }
 
   render(){
-    const fishes = ['fish1', 'fish2', 'fish3', 'fish4', 'fish5', 'fish6', 'fish7', 'fish8', 'fish9', 'fish10', 'fish11']
+    const redirect = this.state.redirect;
+       if (redirect === true) {
+           return <Redirect to="/fishes" />
+       }
+    const fishes = ['fish1', 'fish2', 'fish3', 'fish4', 'fish5', 'fish6', 'fish7', 'fish8', 'fish9', 'fish10', 'fish11', 'fish12']
     return(
       <div>
         <h2>Hatch a Fish Egg!</h2>

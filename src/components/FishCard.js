@@ -1,7 +1,8 @@
 import React from 'react';
 import Chip from '@material-ui/core/Chip';
 import { Link } from 'react-router-dom';
-
+import Button from '@material-ui/core/Button'
+import Delete from '@material-ui/icons/Delete'
 
 
 const FishCard = (props) => {
@@ -20,6 +21,9 @@ return (
       <div>Games won: {fish.games_won}</div>
       <Link id='link'to={'/fight'}>
       <Chip variant="outlined" label={"FIGHT!"} onClick={() => props.clickFish(fish)} />
+      </Link>
+      <Link id='link'to={'/fishes'}>
+      <Chip variant="outlined" label={<Delete/>} onClick={()=> props.deleteFish(fish)}/>
       </Link>
     </div>
   </div>

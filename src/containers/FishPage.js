@@ -13,7 +13,6 @@ class FishPage extends React.Component {
       opponents: [],
       selectedFish: null,
       selectedOpponent: null,
-      title: 'BETTA FISH FIGHT CLUB'
     }
   }
 
@@ -61,13 +60,30 @@ class FishPage extends React.Component {
     })
   }
 
+  deleteFish = (fishObj) => {
+    const newArr = this.state.fishArray.filter(fish => fish.id !== fishObj.id)
+    this.setState({
+      fishArray : newArr
+    })
+    this.handleDelete(fishObj)
+  }
+
+  handleDelete = (fishObj) => {
+    console.log(fishObj);
+  fetch(`http://localhost:3000/fish/${fishObj.id}`, {
+    method: 'DELETE'
+    })
+    .then(res => res.json())
+   .catch(errors => console.log(errors))
+  }
+
   render(){
     return (
         <Router>
           <React.Fragment>
           <NavBar />
         <Switch>
-          <Route path="/fishes" render={() => <FishIndex fish={this.state.fishArray} clickCard={this.handleClickFishCard} />} />
+          <Route path="/fishes" render={() => <FishIndex fish={this.state.fishArray} clickCard={this.handleClickFishCard} deleteFish={this.deleteFish}/>} />
           <Route path="/fight" render={() => <Fight fishWon={this.fishWon} fish={this.state.selectedFish} opponent={this.state.selectedOpponent} />} />
           <Route path="/hatch" render={() => <Form fish={this.state.fishArray.slice(0, 10)} addFish={this.addFish} />} />
         </Switch>
