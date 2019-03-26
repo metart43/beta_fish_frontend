@@ -6,8 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import { Link, BrowserRouter as Router, NavLink} from 'react-router-dom'
+import { Link, BrowserRouter as Router, Redirect, NavLink} from 'react-router-dom'
 
 const styles = {
   root: {
@@ -22,14 +21,6 @@ const styles = {
   },
 };
 
-const link = {
-  width: '100px',
-  padding: '12px',
-  margin: '0 6px 6px',
-  background: 'blue',
-  textDecoration: 'none',
-  color: 'white',
-}
 
 function ButtonAppBar(props) {
   const { classes } = props;
@@ -37,15 +28,19 @@ function ButtonAppBar(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
           <Typography variant="h6" color="inherit" className={classes.grow}>
             Beta Fish Fight Club <i class="fas fa-fish"></i>
           </Typography>
-          <Link exact to='/fishes' style={link}>
-            Fishes
-          </Link>
+            <NavLink id='link' to='/fishes'>
+          <Button id='fishesBttn' variant="outlined">
+          Fishes_<i class="fas fa-fish"></i>
+          </Button>
+          </NavLink>
+            <NavLink id='link' to='/hatch'>
+          <Button id='hatchBttn' variant="outlined">
+          Hatch_<i class="fas fa-egg"></i>
+          </Button>
+          </NavLink>
         </Toolbar>
       </AppBar>
     </div>
