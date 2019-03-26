@@ -69,9 +69,7 @@
 }
 
 #highlightedCard{
-  border-color: #77DFFF;
-  border-width: thin;
-  border-style: solid;
+  background-color: #E1FAFF;
 }
 
 .flip-card {

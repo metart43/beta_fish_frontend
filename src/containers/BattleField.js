@@ -29,18 +29,18 @@ class BattleField extends React.Component {
       opponentX,
       opponentY,
       moveInterval: setInterval(this.updateOpponentLocation, 2000),
-      attackInterval: setInterval(() => {this.opponentAttack()}, 500)
+      attackInterval: setInterval(this.opponentAttack, 500)
     })
     document.addEventListener('keydown', this.attack)
     // eslint-disable-next-line no-unused-expressions
     this.state.moveInterval
   }
-  
+
   componentWillUnmount() {
     clearInterval(this.state.moveInterval)
     clearInterval(this.state.attackInterval)
   }
-  
+
   updateOpponentLocation = () => {
     const bf = document.querySelector('.battlefield')
     const opponentX = (Math.random() * ((bf.clientWidth - 90) - 30)) + 30
@@ -105,7 +105,7 @@ class BattleField extends React.Component {
     let distance = Math.sqrt(xdifference + ydifference)
     return distance < 80
   }
- 
+
   attack = (e) => {
     if (this.isWithinRange()) {
       switch (e.key) {
