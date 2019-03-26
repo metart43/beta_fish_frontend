@@ -13,7 +13,7 @@ class BattleField extends React.Component {
       fishY: 0,
       opponentX: 0,
       opponentY: 0,
-      mouseThere: false
+      mouseThere: true
     }
   }
 

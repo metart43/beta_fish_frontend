@@ -80,7 +80,7 @@ class Fight extends React.Component {
 
   didWin() {
     if (this.state.opponentHp <= 0) {
-      this.postWin(this.props.opponent, this.props.opponent)
+      this.postWin(this.props.fish, this.props.opponent)
     }
   }
 
@@ -103,10 +103,11 @@ class Fight extends React.Component {
         won: true
       }),
     }).then(() => {
+      this.props.fishWon(fish)
       this.setState({
         done: true,
         opponentHp: 0
-      }, this.props.fishWon(fish))
+      })
     })
   }
 

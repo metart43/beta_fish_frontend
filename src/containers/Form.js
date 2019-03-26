@@ -58,7 +58,7 @@ handleClickImage = (fish, event) => {
        if (redirect === true) {
            return <Redirect to="/fishes" />
        }
-    const fishes = ['fish1', 'fish2', 'fish3', 'fish4', 'fish5', 'fish6', 'fish7', 'fish8', 'fish9', 'fish10', 'fish11', 'fish12']
+    const fishes = ['fish1', 'fish2', 'fish3', 'fish4', 'fish5', 'fish6', 'fish7', 'fish8', 'fish9', 'fish10', 'fish11']
     return(
       <div>
         <h2>Hatch a Fish Egg!</h2>
