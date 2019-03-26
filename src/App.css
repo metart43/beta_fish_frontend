@@ -82,6 +82,15 @@
   perspective: 1000px;
 }
 
+.opponent-card {
+  background-color: transparent;
+  width: 120px;
+  height: 180px;
+  margin: 10px;
+  perspective: 1000px;
+  border-radius: 5px;
+}
+
 .flip-card-inner {
   position: relative;
   width: 100%;
