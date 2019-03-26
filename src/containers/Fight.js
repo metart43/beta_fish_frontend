@@ -143,7 +143,7 @@ class Fight extends React.Component {
           title={this.state.opponentHp === 0 ? "Congratulations!": "Oh No!"}
           type={this.state.opponentHp === 0 ? "success": "error"}
           text={this.state.opponentHp === 0 ? `You beat ${this.state.opponentName}!`: `${this.state.opponentName} beat you!`}
-          onConfirm={() => this.setState({ redirect: true, done: false})}
+          onConfirm={() => this.setState({done: false}, this.setState({redirect: true}, this.setState({ done: false})))}
         />
         <BattleField attack1={this.attack1} attack2={this.attack2} attack3={this.attack3} fish={this.state.fishImg} opponent={this.state.opponentImg} />
         <GridList cellHeight={100}>
