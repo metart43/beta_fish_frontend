@@ -1,8 +1,5 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
+import Chip from '@material-ui/core/Chip';
 
 
 
@@ -17,9 +14,11 @@ return (
     </div>
     <div className='flip-card-back'>
         <div><strong>{fish.name}</strong></div>
-        <div><i class="material-icons">healing</i> {fish.hp}</div>
-        <div><i class="material-icons">flash_on</i> {fish.power}</div>
+        <div><i className="material-icons">healing</i> {fish.hp}</div>
+        <div><i className="material-icons">flash_on</i> {fish.power}</div>
       <div>Games won: {fish.games_won}</div>
+      <Chip label={"FIGHT!"} onClick={() => props.clickFish(fish)} />
+      
     </div>
   </div>
   </div>

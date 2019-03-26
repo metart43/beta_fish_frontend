@@ -4,6 +4,7 @@ import Title from '../components/Title'
 import Form from './Form'
 import FishIndex from './FishIndex'
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
+import NavBar from '../components/NavBar'
 
 class FishPage extends React.Component {
   constructor() {
@@ -22,8 +23,7 @@ class FishPage extends React.Component {
     .then(resp => resp.json())
     .then(fishArray => {
       this.setState({
-        fishArray,
-        selectedFish: fishArray[0]
+        fishArray
       })
     })
     fetch('http://localhost:3000/opponents')
@@ -55,8 +55,9 @@ class FishPage extends React.Component {
       <React.Fragment>
         <Title content={this.state.title} />
         <BrowserRouter>
+        <NavBar />
         <Switch>
-          <Route path="/fishes" render={() => <FishIndex fish={this.state.fishArray} />} />
+          <Route path="/fishes" render={() => <FishIndex fish={this.state.fishArray} clickCard={this.handleClickFishCard} />} />
           <Route path="/fight" render={() => <Fight fish={this.state.selectedFish} opponent={this.state.selectedOpponent} />} />
             <Route path="/hatch" render={() => <Form fish={this.state.fishArray.slice(0, 10)} addFish={this.addFish} />} />
         </Switch>

@@ -9,7 +9,7 @@ class FishIndex extends React.Component {
   render(){
     return (
       <Grid container justify="center" >
-        {this.props.fish.map(fish => <FishCard clickFish={null} key={fish.id} fish={fish}/>)}
+        {this.props.fish.map(fish => <FishCard clickFish={this.props.clickCard} key={fish.id} fish={fish}/>)}
     </Grid>)
   }
 }
