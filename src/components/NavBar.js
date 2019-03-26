@@ -29,7 +29,7 @@ function ButtonAppBar(props) {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            Beta Fish Fight Club <i class="fas fa-fish"></i>
+            Betta Fish Fight Club <i class="fas fa-fish"></i>
           </Typography>
             <NavLink id='link' to='/fishes'>
           <Button id='fishesBttn' variant="outlined">
