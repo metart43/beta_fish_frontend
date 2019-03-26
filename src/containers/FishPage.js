@@ -2,11 +2,7 @@ import React from 'react';
 import Fight from './Fight'
 import Form from './Form'
 import FishIndex from './FishIndex'
-<<<<<<< HEAD
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
-=======
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
->>>>>>> 6f3178b3da98ac809129443bd138f597c6ae0f06
 import NavBar from '../components/NavBar'
 
 class FishPage extends React.Component {
@@ -55,16 +51,9 @@ class FishPage extends React.Component {
 
   render(){
     return (
-<<<<<<< HEAD
-      <React.Fragment>
-        <Title content={this.state.title} />
-        <BrowserRouter>
-        <NavBar />
-=======
         <Router>
           <React.Fragment>
           <NavBar />
->>>>>>> 6f3178b3da98ac809129443bd138f597c6ae0f06
         <Switch>
           <Route path="/fishes" render={() => <FishIndex fish={this.state.fishArray} clickCard={this.handleClickFishCard} />} />
           <Route path="/fight" render={() => <Fight fish={this.state.selectedFish} opponent={this.state.selectedOpponent} />} />
