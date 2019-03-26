@@ -13,6 +13,7 @@ class FishPage extends React.Component {
       opponents: [],
       selectedFish: null,
       selectedOpponent: null,
+      styling: false
     }
   }
 
@@ -55,8 +56,9 @@ class FishPage extends React.Component {
   }
 
   handleSelectOpponent = (opponent,event) => {
-    event.currentTarget.id = 'highlightedCard'
+    this.state.styling? event.currentTarget.id = 'highlightedCard' : event.currentTarget.id = ''
     this.setState({
+      styling: !this.state.styling,
       selectedOpponent: opponent
     }, () => console.log(this.state.selectedOpponent))
   }
